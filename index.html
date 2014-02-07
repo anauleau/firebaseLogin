@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Angular</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="author" href="humans.txt">
+    </head>
+    <body>
+        <div ng-controller="main">
+            <button ng-click="oneClick()" class="btn">One</button>
+            <button ng-click="twoClick()" class="btn">Two</button>
+            <button ng-click="threeClick()" class="btn">Three</button>
+            <button ng-click="fourClick()" class="btn">Four</button>
+            <h1 ng-show="resolved">All Buttons Pressed!!!!!</h1>
+        </div>
+        <!-- LE JS -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
