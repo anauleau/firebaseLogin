@@ -1,4 +1,7 @@
-var app = angular.module('app', ['firebase']);
+var app = angular.module('app', [
+    'firebase',
+    'ngRoute'
+]);
 
 app.controller('main', function ($scope, $firebase) {
     var ref = new Firebase("https://torid-fire-9175.firebaseio.com/");
@@ -10,3 +13,18 @@ app.controller('main', function ($scope, $firebase) {
       $scope.msg = "";
     };
 });
+
+
+app.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/', {
+                templateUrl: 'views/login.html'
+            }).
+            when('/signUp', {
+                templateUrl: 'views/signUp.html'
+            }).
+            otherwise({
+                redirectTo: '/'
+            });
+}]);
