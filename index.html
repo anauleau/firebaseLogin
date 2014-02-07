@@ -5,11 +5,13 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>World Cup</title>
+        <link rel="stylesheet" href="foundation/css/foundation.css">
         <link rel="stylesheet" href="style.css">
         <link rel="author" href="humans.txt">
     </head>
     <body>
         <div ng-controller="main">
+            <h1></h1>
             <div id="messagesDiv">
                 <div ng-repeat="msg in messages"><em>{{msg.from}}</em>: {{msg.body}} </em> <i>{{msg.time}}</i></div>
             </div>
@@ -18,7 +20,7 @@
         </div>
         <!-- LE JS -->
         <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/foundation/js/foundation.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/firebase/firebase.js"></script>
         <script src="bower_components/angularfire/angularfire.js"></script>
