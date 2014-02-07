@@ -4,17 +4,17 @@
         <meta charset="utf-8">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Angular</title>
+        <title>World Cup</title>
         <link rel="stylesheet" href="style.css">
         <link rel="author" href="humans.txt">
     </head>
     <body>
         <div ng-controller="main">
-            <button ng-click="oneClick()" class="btn">One</button>
-            <button ng-click="twoClick()" class="btn">Two</button>
-            <button ng-click="threeClick()" class="btn">Three</button>
-            <button ng-click="fourClick()" class="btn">Four</button>
-            <h1 ng-show="resolved">All Buttons Pressed!!!!!</h1>
+            <div id="messagesDiv">
+                <div ng-repeat="msg in messages"><em>{{msg.from}}</em>: {{msg.body}} </em> <i>{{msg.time}}</i></div>
+            </div>
+            <input type="text" ng-model="name" placeholder="Name">
+            <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
         </div>
         <!-- LE JS -->
         <script src="bower_components/jquery/jquery.js"></script>
@@ -22,6 +22,7 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/firebase/firebase.js"></script>
         <script src="bower_components/angularfire/angularfire.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
         <script src="app.js"></script>
     </body>
 </html>
