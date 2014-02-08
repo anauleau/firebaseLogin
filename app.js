@@ -4,12 +4,20 @@ var app = angular.module('app', [
 ]);
 
 app.controller('main', function ($scope, $firebase) {
-    var ref = new Firebase("https://torid-fire-9175.firebaseio.com/");
-    $scope.messages = $firebase(ref);
-    $scope.addMessage = function(e) {
-      if (e.keyCode != 13) return;
-      $scope.time = moment().format('hmmss');
-      $scope.messages.$add({from: $scope.name, body: $scope.msg, time: $scope.time});
-      $scope.msg = "";
-    };
 });
+
+app.service('myAuthService', ["$rootScope", function($rootScope) {
+    var ref = new Firebase("https://torid-fire-9175.firebaseio.com/");
+
+    this.auth = new FirebaseAuthClient(ref, function(error, user) {
+        if (user) {
+            $rootScope.$emit("login", user);
+        }
+        else if (error) {
+            $rootScope.$emit("loginError", error);
+        }
+        else {
+            $rootScope.$emit("logout");
+        }
+    });
+}])
